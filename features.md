@@ -9,7 +9,7 @@
 - Rotten Flesh -> Leather
 ## Anvil
 - No "Too Expensive"
-- Rename item only costs 1 level\
+- Rename item only costs 1 level
 ## Enchantments
 - The fire caused by Flame Enchantment will last according to its level (level 1 is 5s, each level adds 2s)
 - Arrows multipled by Multishot Enchantment will be spawned according to its level
