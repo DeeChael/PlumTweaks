@@ -31,6 +31,7 @@
 - Now you can fertilize all the plants with bone meal
 - The arrow shot on entity will drop when the entity dies
 - Can combine potions in crafting table
+- Camel will knockback the entities on path when dashing
 
 ## TO-DOs
 - Totem of Dying can protect death from void

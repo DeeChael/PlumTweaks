@@ -11,6 +11,7 @@
     "BucketableMixin",
     "BucketItemMixin",
     "CactusBlockMixin",
+    "CamelEntityMixin",
     "ChorusFlowerBlockMixin",
     "CoralBlockBlockMixin",
     "CoralBlockMixin",
