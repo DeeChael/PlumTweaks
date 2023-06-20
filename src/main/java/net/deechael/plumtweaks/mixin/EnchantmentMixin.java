@@ -42,6 +42,10 @@ public abstract class EnchantmentMixin {
         if (enchantment == Enchantments.FIRE_PROTECTION || enchantment == Enchantments.BLAST_PROTECTION) {
             cir.setReturnValue(true);
         }
+
+        if (enchantment == Enchantments.LOOTING && stack.getItem() instanceof BowItem) {
+            cir.setReturnValue(true);
+        }
     }
 
     @ModifyReturnValue(method = "getMaxLevel()I", at = @At("RETURN"))

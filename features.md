@@ -23,6 +23,7 @@
 - Protection & Thorns can be applied on Elytra
 - Fire Protection can be applied on any item to prevent them from burning
 - Blast Protection can be applied on any item to prevent them from explosion
+- Looting can be applied on bow
 ## Grindstone
 - You can put a book into the second slot to obtain the enchantments grinded from the items above
 ## Experience
