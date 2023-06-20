@@ -22,7 +22,7 @@ public abstract class EnchantmentMixin {
         }
 
         if (enchantment == Enchantments.INFINITY) {
-            if (stack.getItem() instanceof BucketItem || stack.getItem() == Items.TOTEM_OF_UNDYING) {
+            if (stack.getItem() instanceof BucketItem || stack.getItem() instanceof CrossbowItem || stack.isOf(Items.TOTEM_OF_UNDYING)) {
                 cir.setReturnValue(true);
             }
         }
@@ -40,6 +40,10 @@ public abstract class EnchantmentMixin {
         }
 
         if (enchantment == Enchantments.FIRE_PROTECTION || enchantment == Enchantments.BLAST_PROTECTION) {
+            cir.setReturnValue(true);
+        }
+
+        if ((enchantment instanceof PowerEnchantment || enchantment instanceof FlameEnchantment || enchantment instanceof PunchEnchantment) && stack.getItem() instanceof CrossbowItem) {
             cir.setReturnValue(true);
         }
 
