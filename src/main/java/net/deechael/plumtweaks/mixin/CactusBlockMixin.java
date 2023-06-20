@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.Interface;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(CactusBlock.class)
-@Implements(@Interface(iface= Fertilizable.class, prefix = "fertilizable$"))
+@Implements(@Interface(iface = Fertilizable.class, prefix = "fertilizable$"))
 public class CactusBlockMixin {
 
     public boolean fertilizable$isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
@@ -23,24 +23,24 @@ public class CactusBlockMixin {
 
     public boolean fertilizable$canGrow(World world, Random random, BlockPos pos, BlockState state) {
         BlockPos topMostCactus = getTopMostCactus(world, pos);
-        return world.getBlockState(topMostCactus.add(0,1,0)).isAir() &&
-                world.getBlockState(topMostCactus.add(0,2,0)).isAir();
+        return world.getBlockState(topMostCactus.add(0, 1, 0)).isAir() &&
+                world.getBlockState(topMostCactus.add(0, 2, 0)).isAir();
     }
 
-    public void fertilizable$grow(ServerWorld world, Random random, BlockPos pos, BlockState state){
+    public void fertilizable$grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
         BlockPos topMostCactus = getTopMostCactus(world, pos);
         for (int i = 1; i < 3; i++) {
-            world.setBlockState(topMostCactus.add(0,i,0), Blocks.CACTUS.getDefaultState());
+            world.setBlockState(topMostCactus.add(0, i, 0), Blocks.CACTUS.getDefaultState());
         }
     }
 
     private BlockPos getTopMostCactus(World world, BlockPos currentCactus) {
-        if (world.getBlockState(currentCactus.add(0,1,0)).isAir()) {
+        if (world.getBlockState(currentCactus.add(0, 1, 0)).isAir()) {
             return currentCactus;
         }
         BlockPos topMostCactus = null;
         while (topMostCactus == null) {
-            BlockPos oneAbove = currentCactus.add(0,1,0);
+            BlockPos oneAbove = currentCactus.add(0, 1, 0);
             if (world.getBlockState(oneAbove).getBlock() instanceof CactusBlock) {
                 currentCactus = oneAbove;
             } else {

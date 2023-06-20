@@ -18,11 +18,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.tag.TagKey;
-import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -35,7 +33,7 @@ public abstract class LivingEntityMixin implements LivingEntityMixinInterf {
 
     private final LivingEntity self = ((LivingEntity) (Object) this);
 
-    private boolean hasVoidLevitation  = false;
+    private boolean hasVoidLevitation = false;
     private boolean hasVoidSlowFalling = false;
     public final List<ItemStack> arrowsInEntity = new ArrayList<>();
 
@@ -46,20 +44,20 @@ public abstract class LivingEntityMixin implements LivingEntityMixinInterf {
 
     @Inject(method = "writeCustomDataToNbt", at = @At("RETURN"))
     private void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
-        nbt.putBoolean(PlumConstants.MOD_ID + ".hasVoidLevitation"  , this.hasVoidLevitation  );
-        nbt.putBoolean(PlumConstants.MOD_ID + ".hasVoidSlowFalling" , this.hasVoidSlowFalling );
+        nbt.putBoolean(PlumConstants.MOD_ID + ".hasVoidLevitation", this.hasVoidLevitation);
+        nbt.putBoolean(PlumConstants.MOD_ID + ".hasVoidSlowFalling", this.hasVoidSlowFalling);
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("HEAD"))
     private void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
-        this.hasVoidLevitation  = nbt.getBoolean(PlumConstants.MOD_ID + ".hasVoidLevitation"  );
-        this.hasVoidSlowFalling = nbt.getBoolean(PlumConstants.MOD_ID + ".hasVoidSlowFalling" );
+        this.hasVoidLevitation = nbt.getBoolean(PlumConstants.MOD_ID + ".hasVoidLevitation");
+        this.hasVoidSlowFalling = nbt.getBoolean(PlumConstants.MOD_ID + ".hasVoidSlowFalling");
     }
 
     @Inject(method = "tick", at = @At("HEAD"))
     private void tick(CallbackInfo ci) {
         if (this.hasVoidLevitation) {
-            if (! self.hasStatusEffect(StatusEffects.LEVITATION)) {
+            if (!self.hasStatusEffect(StatusEffects.LEVITATION)) {
                 this.hasVoidLevitation = false;
             } else if (self.getY() >= (double) self.getWorld().getBottomY()) {
                 self.removeStatusEffect(StatusEffects.LEVITATION);
@@ -68,7 +66,7 @@ public abstract class LivingEntityMixin implements LivingEntityMixinInterf {
             }
         }
         if (this.hasVoidSlowFalling) {
-            if (! self.hasStatusEffect(StatusEffects.SLOW_FALLING)) {
+            if (!self.hasStatusEffect(StatusEffects.SLOW_FALLING)) {
                 this.hasVoidSlowFalling = false;
             } else if (self.isOnGround()) {
                 self.removeStatusEffect(StatusEffects.SLOW_FALLING);
@@ -94,7 +92,7 @@ public abstract class LivingEntityMixin implements LivingEntityMixinInterf {
         if (cir.getReturnValue() && source.isOf(DamageTypes.OUT_OF_WORLD)) {
             self.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, -1, 127, true, true, true));
             self.removeStatusEffect(StatusEffects.SLOW_FALLING);
-            this.hasVoidLevitation  = true;
+            this.hasVoidLevitation = true;
             this.hasVoidSlowFalling = false;
         }
     }

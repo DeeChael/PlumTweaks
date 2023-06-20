@@ -20,11 +20,13 @@ import org.spongepowered.asm.mixin.Shadow;
 import java.util.Arrays;
 
 @Mixin(CoralBlockBlock.class)
-@Implements(@Interface(iface= Fertilizable.class, prefix = "fertilizable$"))
+@Implements(@Interface(iface = Fertilizable.class, prefix = "fertilizable$"))
 public class CoralBlockBlockMixin {
 
     @Shadow
-    protected boolean isInWater(BlockView world, BlockPos pos) { return false; }
+    protected boolean isInWater(BlockView world, BlockPos pos) {
+        return false;
+    }
 
     public boolean fertilizable$isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
         return true;
@@ -34,7 +36,7 @@ public class CoralBlockBlockMixin {
         return isInWater(world, pos);
     }
 
-    public void fertilizable$grow(ServerWorld world, Random random, BlockPos pos, BlockState state){
+    public void fertilizable$grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
         Feature<DefaultFeatureConfig> choice =
                 Arrays.asList(Feature.CORAL_CLAW, Feature.CORAL_TREE, Feature.CORAL_MUSHROOM)
                         .get(random.nextInt(3));

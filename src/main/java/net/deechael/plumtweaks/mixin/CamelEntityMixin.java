@@ -34,7 +34,7 @@ public abstract class CamelEntityMixin extends LivingEntity {
             for (Entity entity : toRam) {
                 if (entity instanceof LivingEntity living) {
                     living.playSound(SoundEvents.ENTITY_PLAYER_ATTACK_KNOCKBACK, 1f, 1f);
-                    living.takeKnockback(0.4f, MathHelper.sin(this.getYaw() * ((float)Math.PI / 180)), -MathHelper.cos(this.getYaw() * ((float)Math.PI / 180)));
+                    living.takeKnockback(0.4f, MathHelper.sin(this.getYaw() * ((float) Math.PI / 180)), -MathHelper.cos(this.getYaw() * ((float) Math.PI / 180)));
                 }
             }
         }

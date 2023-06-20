@@ -1,6 +1,9 @@
 package net.deechael.plumtweaks.mixin;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Fertilizable;
+import net.minecraft.block.LeavesBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
@@ -12,7 +15,7 @@ import org.spongepowered.asm.mixin.Interface;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(LeavesBlock.class)
-@Implements(@Interface(iface= Fertilizable.class, prefix = "fertilizable$"))
+@Implements(@Interface(iface = Fertilizable.class, prefix = "fertilizable$"))
 public class LeavesBlockMixin extends Block {
     public LeavesBlockMixin(Settings settings) {
         super(settings);
@@ -26,7 +29,7 @@ public class LeavesBlockMixin extends Block {
         return true;
     }
 
-    public void fertilizable$grow(ServerWorld world, Random random, BlockPos pos, BlockState state){
+    public void fertilizable$grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
         Block.dropStack(world, pos, new ItemStack(this));
     }
 }

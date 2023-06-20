@@ -1,6 +1,9 @@
 package net.deechael.plumtweaks.mixin;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.CoralWallFanBlock;
+import net.minecraft.block.Fertilizable;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
@@ -12,7 +15,7 @@ import org.spongepowered.asm.mixin.Interface;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(CoralWallFanBlock.class)
-@Implements(@Interface(iface= Fertilizable.class, prefix = "fertilizable$"))
+@Implements(@Interface(iface = Fertilizable.class, prefix = "fertilizable$"))
 public class CoralWallFanBlockMixin extends Block {
 
     public CoralWallFanBlockMixin(Settings settings) {
@@ -27,7 +30,7 @@ public class CoralWallFanBlockMixin extends Block {
         return true;
     }
 
-    public void fertilizable$grow(ServerWorld world, Random random, BlockPos pos, BlockState state){
+    public void fertilizable$grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
         Block.dropStack(world, pos, new ItemStack(this));
     }
 

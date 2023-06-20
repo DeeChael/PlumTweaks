@@ -6,7 +6,6 @@ import net.fabricmc.api.Environment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.CrossbowUser;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.FireworkRocketEntity;
@@ -78,7 +77,7 @@ public abstract class CrossbowItemMixin {
 
         int i = EnchantmentHelper.getLevel(Enchantments.MULTISHOT, crossbow);
         int j = i == 0 ? 1 : 3;
-        boolean bl = shooter instanceof PlayerEntity && (((PlayerEntity)shooter).getAbilities().creativeMode || EnchantmentHelper.getLevel(Enchantments.INFINITY, crossbow) > 0 );
+        boolean bl = shooter instanceof PlayerEntity && (((PlayerEntity) shooter).getAbilities().creativeMode || EnchantmentHelper.getLevel(Enchantments.INFINITY, crossbow) > 0);
         ItemStack itemStack = shooter.getProjectileType(crossbow);
         ItemStack itemStack2 = itemStack.copy();
         for (int k = 0; k < j; ++k) {
@@ -146,7 +145,7 @@ public abstract class CrossbowItemMixin {
         }
         boolean bl = projectile.isOf(Items.FIREWORK_ROCKET);
         if (bl) {
-            projectileEntity = new FireworkRocketEntity(world, projectile, shooter, shooter.getX(), shooter.getEyeY() - (double)0.15f, shooter.getZ(), true);
+            projectileEntity = new FireworkRocketEntity(world, projectile, shooter, shooter.getX(), shooter.getEyeY() - (double) 0.15f, shooter.getZ(), true);
         } else {
             PersistentProjectileEntity persistentProjectileEntity = createArrow(world, shooter, crossbow, projectile);
             projectileEntity = persistentProjectileEntity;
@@ -155,7 +154,7 @@ public abstract class CrossbowItemMixin {
             }
             int k, j;
             if ((j = EnchantmentHelper.getLevel(Enchantments.POWER, crossbow)) > 0) {
-                persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() + (double)j * 0.5 + 0.5);
+                persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() + (double) j * 0.5 + 0.5);
             }
             if ((k = EnchantmentHelper.getLevel(Enchantments.PUNCH, crossbow)) > 0) {
                 persistentProjectileEntity.setPunch(k);
@@ -168,7 +167,7 @@ public abstract class CrossbowItemMixin {
             crossbowUser.shoot(crossbowUser.getTarget(), crossbow, projectileEntity, simulated);
         } else {
             Vec3d vec3d = shooter.getOppositeRotationVector(1.0f);
-            Quaternionf quaternionf = new Quaternionf().setAngleAxis(simulated * ((float)Math.PI / 180), vec3d.x, vec3d.y, vec3d.z);
+            Quaternionf quaternionf = new Quaternionf().setAngleAxis(simulated * ((float) Math.PI / 180), vec3d.x, vec3d.y, vec3d.z);
             Vec3d vec3d2 = shooter.getRotationVec(1.0f);
             Vector3f vector3f = vec3d2.toVector3f().rotate(quaternionf);
             projectileEntity.setVelocity(vector3f.x(), vector3f.y(), vector3f.z(), speed, divergence);

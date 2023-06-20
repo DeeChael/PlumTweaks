@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.Interface;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(ChorusFlowerBlock.class)
-@Implements(@Interface(iface= Fertilizable.class, prefix = "fertilizable$"))
+@Implements(@Interface(iface = Fertilizable.class, prefix = "fertilizable$"))
 public class ChorusFlowerBlockMixin {
 
     public boolean fertilizable$isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
@@ -24,7 +24,7 @@ public class ChorusFlowerBlockMixin {
         return true;
     }
 
-    public void fertilizable$grow(ServerWorld world, Random random, BlockPos pos, BlockState state){
+    public void fertilizable$grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
         ChorusFlowerBlock.generate(world, pos, random, 5);
     }
 }
