@@ -1,6 +1,9 @@
+import com.modrinth.minotaur.dependencies.ModDependency
+
 plugins {
 	id 'fabric-loom' version '1.2-SNAPSHOT'
 	id 'maven-publish'
+	id "com.modrinth.minotaur" version "2.+"
 }
 
 version = project.mod_version
@@ -26,6 +29,17 @@ loom {
         }
     }
 
+}
+
+modrinth {
+	token = '$MODRINTH_TOKEN'
+	projectId = 'SmGrUHor'
+	uploadFile = remapJar
+	gameVersions = ['1.20.1']
+	loaders = ['fabric']
+	dependencies = [
+			new ModDependency('P7dR8mSH', 'required')
+	]
 }
 
 dependencies {
