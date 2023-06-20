@@ -27,6 +27,9 @@
 - You can put a book into the second slot to obtain the enchantments grinded from the items above
 ## Experience
 - Now enchanting costs according to exps not levels
+## Others
+### Bone Meal
+Now you can fertilize all the plants with bone meal
 
 ## TO-DOs
 - Totem of Dying can protect death from void
