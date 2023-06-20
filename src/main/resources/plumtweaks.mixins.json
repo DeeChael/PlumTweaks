@@ -13,6 +13,7 @@
     "CactusBlockMixin",
     "CamelEntityMixin",
     "ChorusFlowerBlockMixin",
+    "ComposterBlockMixin",
     "CoralBlockBlockMixin",
     "CoralBlockMixin",
     "CoralFanBlockMixin",

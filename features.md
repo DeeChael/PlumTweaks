@@ -32,6 +32,7 @@
 - The arrow shot on entity will drop when the entity dies
 - Can combine potions in crafting table
 - Camel will knockback the entities on path when dashing
+- Rotten flesh, Spider eye, Fermented spider eye, Poisonous potato, Rabbit's foot are now can be used to compost
 
 ## TO-DOs
 - Totem of Dying can protect death from void
