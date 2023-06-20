@@ -5,6 +5,7 @@
   "mixins": [
     "AbstractFurnaceBlockEntityMixin",
     "AnvilScreenHandlerMixin",
+    "ArrowEntityAccessor",
     "AxolotlEntityMixin",
     "BowItemMixin",
     "BucketableMixin",

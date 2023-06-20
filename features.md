@@ -28,8 +28,9 @@
 ## Experience
 - Now enchanting costs according to exps not levels
 ## Others
-### Bone Meal
-Now you can fertilize all the plants with bone meal
+- Now you can fertilize all the plants with bone meal
+- The arrow shot on entity will drop when the entity dies
+- Can combine potions in crafting table
 
 ## TO-DOs
 - Totem of Dying can protect death from void
