@@ -32,7 +32,7 @@ loom {
 }
 
 modrinth {
-	token = '$MODRINTH_TOKEN'
+	token = System.getenv("MODRINTH_TOKEN")
 	projectId = 'SmGrUHor'
 	uploadFile = remapJar
 	gameVersions = ['1.20.1']
