@@ -3,7 +3,8 @@
   "package": "net.deechael.plumtweaks.mixin.client",
   "compatibilityLevel": "JAVA_17",
   "client": [
-    "AnvilScreenMixin"
+    "AnvilScreenMixin",
+    "GrindstoneScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

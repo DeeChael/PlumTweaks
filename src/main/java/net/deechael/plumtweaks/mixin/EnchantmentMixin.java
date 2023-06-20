@@ -13,7 +13,6 @@ public abstract class EnchantmentMixin {
 
     @Inject(method = "isAcceptableItem(Lnet/minecraft/item/ItemStack;)Z", at = @At("HEAD"), cancellable = true)
     private void isAcceptableItem(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
-
         Enchantment enchantment = (Enchantment) (Object) this;
         if (enchantment == Enchantments.FIRE_ASPECT || enchantment == Enchantments.KNOCKBACK || enchantment == Enchantments.LOOTING) {
             if (!(stack.getItem() instanceof AxeItem || stack.getItem() instanceof TridentItem))
@@ -26,6 +25,22 @@ public abstract class EnchantmentMixin {
             if (stack.getItem() instanceof BucketItem || stack.getItem() == Items.TOTEM_OF_UNDYING) {
                 cir.setReturnValue(true);
             }
+        }
+
+        if (enchantment instanceof ProtectionEnchantment) {
+            if (stack.getItem() instanceof ElytraItem) {
+                cir.setReturnValue(true);
+            }
+        }
+
+        if (enchantment == Enchantments.THORNS) {
+            if (stack.getItem() instanceof ElytraItem) {
+                cir.setReturnValue(true);
+            }
+        }
+
+        if (enchantment == Enchantments.FIRE_PROTECTION || enchantment == Enchantments.BLAST_PROTECTION) {
+            cir.setReturnValue(true);
         }
     }
 

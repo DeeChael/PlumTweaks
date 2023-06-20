@@ -20,6 +20,13 @@
 - Trident will be back when it goes into void
 - Upgrade the maximum levels of some enchantments
 - Infinity can be applied on Totem of Dying, Water Bucket, Lava Bucket
+- Protection & Thorns can be applied on Elytra
+- Fire Protection can be applied on any item to prevent them from burning
+- Blast Protection can be applied on any item to prevent them from explosion
+## Grindstone
+- You can put a book into the second slot to obtain the enchantments grinded from the items above
+## Experience
+- Now enchanting costs according to exps not levels
 
 ## TO-DOs
 - Totem of Dying can protect death from void
