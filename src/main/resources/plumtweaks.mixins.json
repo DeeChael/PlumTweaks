@@ -36,6 +36,7 @@
     "ItemEntityMixin",
     "ItemUsageMixin",
     "LeavesBlockMixin",
+    "LevitationCriterionMixin",
     "LilyPadBlockMixin",
     "LivingEntityMixin",
     "LuckEnchantmentMixin",
