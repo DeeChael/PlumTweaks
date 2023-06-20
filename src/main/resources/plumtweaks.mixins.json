@@ -19,6 +19,7 @@
     "CoralFanBlockMixin",
     "CoralFeatureMixin",
     "CoralWallFanBlockMixin",
+    "CropBlockMixin",
     "CrossbowItemMixin",
     "DamageEnchantmentMixin",
     "DeadBushMixin",
